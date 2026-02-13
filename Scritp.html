@@ -1,27 +1,42 @@
 <!DOCTYPE html>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <head>
         <meta charset="utf-8"> 
         <base href="http://ConoceUnPocoDeMi.com" target="_blank">
         <title> Conoce un Poco Sobre Mi </title>
+        <style>
+            a:hover {
+                color: #F59E0B;
+            }      
+
+            a:after{
+                color: white;
+                
+            }
+
+            #Mi_Nombre {
+                color: #f59e0b;
+            }
+        </style>
     </head>
     <body>
         <header>
-            <h1> Mi nombre es Jesus Rodriguez Mendoza</h1>
+            <h1 id="Mi_Nombre"> Mi nombre es Jesus Rodriguez Mendoza</h1>
             <h2> Matricula A01713550 </h2>
             <h2> Correo A01713550@tec.mx </h2>
         </header>
         <div>
             <hr/>
-            <h1> Preguntas </h1>
+            <h1 style="color: #F59E0B;"> Preguntas </h1>
 
-            <p> <strong> ¿Cuál es la diferencia entre Internet y la World Wide Web? </strong> </p>
+            <p class="pregunta"> <strong> ¿Cuál es la diferencia entre Internet y la World Wide Web? </strong> </p>
             <blockquote> 
                 La diferencia es que el internet es una infrastructura fisica y el www es un sistema de informacion que opera sobre el internet
             </blockquote>
 
             <br>
 
-            <p> <strong> ¿Cuáles son las partes de un URL? </strong> </p>
+            <p class="pregunta"> <strong> ¿Cuáles son las partes de un URL? </strong> </p>
             <blockquote>
                 Partes:
             </blockquote>
@@ -34,7 +49,7 @@
 
             <br>
 
-            <p> <strong> ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE? </strong> </p>
+            <p class="pregunta"> <strong> ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE? </strong> </p>
             <blockquote> Metodos:  </blockquote>
             <ol>
                 <li> GET: Solicita un recurso especifico </li>
@@ -47,42 +62,42 @@
 
             <br>
 
-            <p> <strong> ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué? </strong> </p>
+            <p class="pregunta"> <strong> ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué? </strong> </p>
             <blockquote>
                 Se usa el metodo POST porque es el que sirve para mandar recursos como usuario y contraseña
             </blockquote>
 
             <br> 
 
-            <p> <strong> ¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL? </strong> </p>
+            <p class="pregunta"> <strong> ¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL? </strong> </p>
             <blockquote>
                 Se usa el metodo GET porque al ingresar la URL se solicitan los recursos para poder visualizar la pagina web
             </blockquote>
 
             <br>
 
-            <p> <strong> Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?  </strong> </p>
+            <p class="pregunta"> <strong> Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?  </strong> </p>
             <blockquote>
                 Significa OK, que todo el proceso ocurrio bien.
             </blockquote>
 
             <br>
 
-            <p> <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué? </strong> </p>
+            <p class="pregunta"> <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué? </strong> </p>
             <blockquote> 
                 No, debido a que es error de NOT FOUND, y pues significa que el usuario puso la URL mal o esta buscando una pagina que no existe, o tambien se pone para algo prohibido para decir que no existe.
             </blockquote>
 
             <br>
 
-            <p> <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué? </strong> </p>
+            <p class="pregunta"> <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué? </strong> </p>
             <blockquote>
                 Si porque es un error interno del servidor, entonces queda en manos del desarrollador resolver ese problema.
             </blockquote>
 
             <br>
 
-            <p> <strong> ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados. </strong> </p>
+            <p class="pregunta"> <strong> ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados. </strong> </p>
             <blockquote>
                 Son atributos que ya no se recomiendan usar, aun se pueden usar pero puede ser que en un futuro ya no se puedan, algunas de estas son:
             </blockquote>
@@ -96,7 +111,7 @@
 
             <br>
 
-            <p> <strong> ¿Cuáles son las diferencias principales entre HTML 4 y HTML5? </strong> </p>
+            <p class="pregunta"> <strong> ¿Cuáles son las diferencias principales entre HTML 4 y HTML5? </strong> </p>
             <blockquote>
                 HTML 5 es mucho mas eficiente y facil de usar, muchas etiquetas fueron retrabajas para su uso mas facil, <br>
                 tambien HTML 5 es mucho mas dinamico e incluye elementos multimendia, tambien permite el uso de audio y video.
@@ -104,7 +119,7 @@
 
             <br>
 
-            <p> <strong> ¿Qué componentes de estructura y estilo tiene una tabla? </strong> </p>
+            <p class="pregunta"> <strong> ¿Qué componentes de estructura y estilo tiene una tabla? </strong> </p>
             <blockquote>
                 Una tabla tiene de componentes el contenedor de la tabla(table), el titulo de la tabla (caption), el encabezado (thead), las filas (tr), celda con datos (td), celda de encabezado (th), el cuerpo (tbody) y el pie (tfoot). <br>
                 Y sobre estilos tiene: 
@@ -141,7 +156,7 @@
 
             <br>
 
-            <p> <strong> ¿Cuáles son los principales controles de una forma HTML5? </strong> </p>
+            <p class="pregunta"> <strong> ¿Cuáles son los principales controles de una forma HTML5? </strong> </p>
              <blockquote>
                 Tenemos input que puede variar su entrada dependiendo del type que le asignemos unos ejemplos son los siguientes:
              </blockquote>
@@ -154,7 +169,7 @@
 
             <br>
 
-            <p> <strong> ¿Qué tanto soporte HTML5 tiene el navegador que utilizas? </strong> </p>
+            <p class="pregunta"> <strong> ¿Qué tanto soporte HTML5 tiene el navegador que utilizas? </strong> </p>
              <blockquote>
                 Yo uso el navegador de safari y su compatibilidad es de 520 de 555 puntos o un 93%, <br>
                 los problemas que tiene no acepta los elementos custom, no acepta algunos elementos interactivos, etc.
@@ -162,7 +177,7 @@
 
             <br>
 
-            <p> <strong> ¿Cuál es el ciclo de vida de los sistemas de información? </strong> </p>
+            <p class="pregunta"> <strong> ¿Cuál es el ciclo de vida de los sistemas de información? </strong> </p>
              <blockquote>
                 Es el que esta hecho mas por la parte administrativa y aqui se toma como una idea. <br>
                 Inicia por:
@@ -180,7 +195,7 @@
 
             <br>
 
-            <p> <strong> ¿Cuál es el ciclo de desarrollo de sistemas de información? </strong> </p>
+            <p class="pregunta"> <strong> ¿Cuál es el ciclo de desarrollo de sistemas de información? </strong> </p>
             <blockquote>
                 Es el que se desarrola por el Ingeniero en Software y se toma como un producto de Software. <br>
                 Inicia por:
@@ -196,6 +211,39 @@
                 <li> Mantenimiento </li>
              </ol>
 
+             
+            <p class="pregunta"> <strong> Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </strong> </p>
+            <blockquote>
+                Solo usarla en casos muy especificos, si quieres que una clase actue diferente, ejem para H1 le tienes un estilo asignado pero usas h1 en tu encabezado
+                pues para el H1 de los encabezado le ponemos el !important para que pase lo que pase tome el estilo que tu quieres.
+            </blockquote>
+
+            <br>
+ 
+            <p class="pregunta"> <strong> Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado? </strong> </p>
+            <blockquote>
+                Las imagenes de fondo tiene que seguir reglas de diseno, porque si se llegara a elegir mal, podria hacer que la pagina web sea inleible,
+                puede ser que los colores parecidos a los del texto y no se pueda leer el texto, la imagen este borrosa y esto puede provocar complicaciones para leer.
+            </blockquote>
+
+            <br>
+
+            <p class="pregunta"> <strong> Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt? </strong> </p>
+
+            <blockquote>
+                Escoger la que sea una medida relativa para que se pueda adaptar mejor a todos los tipos de pantalla como el % o px, tambien hay mas opciones buenas como el em.
+            </blockquote>
+
+            <br>
+
+            <p class="pregunta"> <strong> ¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio? </strong> </p>
+
+            <blockquote>
+                Primero una version minimizada es la que no lleva espacios o saltos de lineas, y porque esto tiene mejor rendimiento, debido a que el navegador tambien procesa los saltos de linea y espacios
+                y por eso cuando se quitan el sistema procesa menos y tiene mejor rendimiento
+            </blockquote>
+
+
         </div>
         
         <div>
@@ -208,7 +256,7 @@
             </ul>
             <br>
             <br>
-
+            <hr>
         </div>
 
         <footer>

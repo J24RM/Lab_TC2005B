@@ -1,0 +1,52 @@
+header {
+    background-color: var(--primary);
+    background-size: cover;
+    margin: 0;
+    color: var(--text-primary);
+    font-family: sans-serif;
+}
+
+p.pregunta {
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: var(--background) ;
+    color: var(--text-secondary);
+    margin: 0 auto;
+    max-width: 70em;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+}
+
+blockquote {
+    background-color: var(--surface);
+    background-size: cover;
+}
+
+a{
+    color:  var(--text-secondary);
+}
+
+input {
+    background-color: var(--primary);
+}
+
+:root {
+    --primary: #1e2a4c;      /* Azul profundo */
+    --secondary: #2563EB;    /* Azul vibrante */
+    --accent: #F59E0B;       /* Ámbar elegante */
+    
+    --background: #0F172A;   /* Azul oscuro casi negro */
+    --surface: #1E293B;      /* Fondo de tarjetas */
+    
+    --text-primary: #F1F5F9; /* Texto principal */
+    --text-secondary: #94A3B8; /* Texto secundario */
+}
+
+
+
