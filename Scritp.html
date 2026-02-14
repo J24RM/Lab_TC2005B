@@ -1,268 +1,89 @@
 <!DOCTYPE html>
+<html>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <head>
         <meta charset="utf-8"> 
-        <base href="http://ConoceUnPocoDeMi.com" target="_blank">
-        <title> Conoce un Poco Sobre Mi </title>
-        <style>
-            a:hover {
-                color: #F59E0B;
-            }      
-
-            a:after{
-                color: white;
-                
-            }
-
-            #Mi_Nombre {
-                color: #f59e0b;
-            }
-        </style>
+        <title>Conoce un Poco Sobre Mi</title>
     </head>
+
     <body>
+
         <header>
-            <h1 id="Mi_Nombre"> Mi nombre es Jesus Rodriguez Mendoza</h1>
-            <h2> Matricula A01713550 </h2>
-            <h2> Correo A01713550@tec.mx </h2>
+            <h1>Mi nombre es Jesus Rodriguez Mendoza</h1>
+            <h2>Matricula A01713550</h2>
+            <h2>Correo A01713550@tec.mx</h2>
         </header>
-        <div>
-            <hr/>
-            <h1 style="color: #F59E0B;"> Preguntas </h1>
 
-            <p class="pregunta"> <strong> ¿Cuál es la diferencia entre Internet y la World Wide Web? </strong> </p>
-            <blockquote> 
-                La diferencia es que el internet es una infrastructura fisica y el www es un sistema de informacion que opera sobre el internet
-            </blockquote>
+        <hr>
 
-            <br>
+        <h2>Selecciona un inciso:</h2>
 
-            <p class="pregunta"> <strong> ¿Cuáles son las partes de un URL? </strong> </p>
-            <blockquote>
-                Partes:
-            </blockquote>
-            <ol>
-                <li> Protocolo (https) </li>
-                <li>Subdominio (www) </li>
-                <li> Dominio   (google) </li>
-                <li> TDL       (.com) </li>
-            </ol>
+        <button onclick="activarInciso(1)">Inciso 1</button>
+        <button onclick="activarInciso(2)">Inciso 2</button>
+        <button onclick="activarInciso(3)">Inciso 3</button>
+        <button onclick="activarInciso(4)">Inciso 4</button>
+        <button onclick="activarInciso(5)">Inciso 5</button>
+        <button onclick="activarInciso(6)">Inciso 6</button>
 
-            <br>
+        <hr>
 
-            <p class="pregunta"> <strong> ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE? </strong> </p>
-            <blockquote> Metodos:  </blockquote>
-            <ol>
-                <li> GET: Solicita un recurso especifico </li>
-                <li> HEAD: Solita un recurso/respeusta pero sin el cuerpo </li>
-                <li> POST: Crea y Enviar un recurso especifico </li>
-                <li> PUT: Actualiza o remplaza un recurso conocido </li>
-                <li> PATCH: Hacer modificaciones parciales a un recurso </li>
-                <li> DELETE: Borra un recurso especifico </li>
-            </ol>
+        <h3> ¿Qué diferencias y semejanzas hay entre Java y JavaScript? </h3>
 
-            <br>
+        <blockquote>
+            Diferencias: <br>
+            Una diferencia es que Java es un lenguaje compilado, y JavaScript es un lenguaje interpretado. <br>
+            El tipodo de datos en JavaScript es mas flexible y en Java tienes que especificar el tipo de dato. <br> <br>
+            Semejanzas: <br>
+            Su sintaxis es parecida que se inspira en C y su uso de {} y ; <br>
+            Comparten parte del nombre
+        </blockquote>
 
-            <p class="pregunta"> <strong> ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué? </strong> </p>
-            <blockquote>
-                Se usa el metodo POST porque es el que sirve para mandar recursos como usuario y contraseña
-            </blockquote>
+        <br>
 
-            <br> 
+    <h3> ¿Qué métodos tiene el objeto Date? (Menciona al menos 5*) </h3>
 
-            <p class="pregunta"> <strong> ¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL? </strong> </p>
-            <blockquote>
-                Se usa el metodo GET porque al ingresar la URL se solicitan los recursos para poder visualizar la pagina web
-            </blockquote>
+    <ol>
+        <li> Date(), es su constructor, retorna una cadena la fecha y hora actual </li>
+        <li> now(), Devuelve el numero correspondiente al actual número de milisegundos transcurridos desde el 1 de Enero de 1970. </li>
+        <li> prototype.getDate(): Devuelve el dia del mes. </li>
+        <li> prototype.getDay(); Devuelve el dia de la semana. </li>
+        <li> prototype.getHours(): Devuelve la hora del dia. </li>
+    </ol>
 
-            <br>
+    <br>
+    <h3> ¿Qué métodos tienen los arreglos? (Menciona al menos 5*) </h3>
+    <ol>
+        <li> push(): Agrega un elemento al final del arreglo </li>
+        <li> pop(): Elimina un elemento al final del arreglo </li>
+        <li> shift(): Elimina un elemento al inicio del arreglo </li>
+        <li> slice(): Clona el arreglo a otro arreglo </li>
+        <li> unshift: Agrega un elementto al inicio del arreglo </li>
+    </ol>
+    <br>
 
-            <p class="pregunta"> <strong> Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?  </strong> </p>
-            <blockquote>
-                Significa OK, que todo el proceso ocurrio bien.
-            </blockquote>
+    <h3> ¿Cómo se declara una variable con alcance local dentro de una función? </h3>
 
-            <br>
+    <blockquote>
+        Con let se declaran variables que solo funcionan en su entorno local.
+    </blockquote>
 
-            <p class="pregunta"> <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué? </strong> </p>
-            <blockquote> 
-                No, debido a que es error de NOT FOUND, y pues significa que el usuario puso la URL mal o esta buscando una pagina que no existe, o tambien se pone para algo prohibido para decir que no existe.
-            </blockquote>
+    <h3> ¿Qué implicaciones tiene utilizar variables globales dentro de funciones? </h3>
 
-            <br>
+    <blockquote>
+        Usar var puede provocar que haya variable que se solapen y esto dificulta la legibilidad del codigo.
+    </blockquote>
 
-            <p class="pregunta"> <strong> ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué? </strong> </p>
-            <blockquote>
-                Si porque es un error interno del servidor, entonces queda en manos del desarrollador resolver ese problema.
-            </blockquote>
+    <br>
 
-            <br>
+    <hr>
 
-            <p class="pregunta"> <strong> ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados. </strong> </p>
-            <blockquote>
-                Son atributos que ya no se recomiendan usar, aun se pueden usar pero puede ser que en un futuro ya no se puedan, algunas de estas son:
-            </blockquote>
-
-            <ol>
-                <li> applet: Relaciona Applet con java | Alternativa: embed, object </li>
-                <li> dir: Listas de archivos o carpetas | Alternativa: ul </li>
-                <li> isindex: Crea campo para busquedas | Alternativa: input </li>
-                <li> hgroup: Agrupacion de Encabezados | Alternativa: header  </li>
-            </ol>
-
-            <br>
-
-            <p class="pregunta"> <strong> ¿Cuáles son las diferencias principales entre HTML 4 y HTML5? </strong> </p>
-            <blockquote>
-                HTML 5 es mucho mas eficiente y facil de usar, muchas etiquetas fueron retrabajas para su uso mas facil, <br>
-                tambien HTML 5 es mucho mas dinamico e incluye elementos multimendia, tambien permite el uso de audio y video.
-            </blockquote>
-
-            <br>
-
-            <p class="pregunta"> <strong> ¿Qué componentes de estructura y estilo tiene una tabla? </strong> </p>
-            <blockquote>
-                Una tabla tiene de componentes el contenedor de la tabla(table), el titulo de la tabla (caption), el encabezado (thead), las filas (tr), celda con datos (td), celda de encabezado (th), el cuerpo (tbody) y el pie (tfoot). <br>
-                Y sobre estilos tiene: 
-                <ol>
-                    <li> Borde </li>
-                    <li> Padding: Espacio entre celdas </li>
-                    <li> text-aling: Alineacion del texto </li>
-                    <li> backgrounf-color </li>
-                    <li>width y height: Tamano </li>
-                </ol>
-            </blockquote>
-
-            <p> Esto es una Tabla: </p>
-
-            <table>
-                <caption> Titulo de la Tabla </caption>
-                <thead>
-                    <tr>
-                        <th> Opcion 1 </th>
-                        <th> Opcion 2 </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> Nombre 1 </td>
-                        <td> Apellido 1 </td>
-                    </tr>
-                    <tr>
-                        <td> Nombre 2 </td>
-                        <td> Apellido 2 </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            <p class="pregunta"> <strong> ¿Cuáles son los principales controles de una forma HTML5? </strong> </p>
-             <blockquote>
-                Tenemos input que puede variar su entrada dependiendo del type que le asignemos unos ejemplos son los siguientes:
-             </blockquote>
-             <ul>
-                <li> text <input type="text"> </li>
-                <li> password <input type="password"> </li>
-                <li> email <input type="email"> </li>
-                <li> number <input type="number"> </li>
-             </ul>
-
-            <br>
-
-            <p class="pregunta"> <strong> ¿Qué tanto soporte HTML5 tiene el navegador que utilizas? </strong> </p>
-             <blockquote>
-                Yo uso el navegador de safari y su compatibilidad es de 520 de 555 puntos o un 93%, <br>
-                los problemas que tiene no acepta los elementos custom, no acepta algunos elementos interactivos, etc.
-             </blockquote>
-
-            <br>
-
-            <p class="pregunta"> <strong> ¿Cuál es el ciclo de vida de los sistemas de información? </strong> </p>
-             <blockquote>
-                Es el que esta hecho mas por la parte administrativa y aqui se toma como una idea. <br>
-                Inicia por:
-             </blockquote>
-
-             <ol>
-                <li> Planificacion </li>
-                <li> Analisis </li>
-                <li> Diseno </li>
-                <li> Implementacion </li>
-                <li> Pruebas </li>
-                <li> Despliegue </li>
-                <li> Uso y mantenimiento </li>
-             </ol>
-
-            <br>
-
-            <p class="pregunta"> <strong> ¿Cuál es el ciclo de desarrollo de sistemas de información? </strong> </p>
-            <blockquote>
-                Es el que se desarrola por el Ingeniero en Software y se toma como un producto de Software. <br>
-                Inicia por:
-             </blockquote>
-
-             <ol>
-                <li> Alcanze </li>
-                <li> Analisis de Requerimientos </li>
-                <li> Diseno del sistema </li>
-                <li> Codificacion </li>
-                <li> Pruebas </li>
-                <li> Despliegue </li>
-                <li> Mantenimiento </li>
-             </ol>
-
-             
-            <p class="pregunta"> <strong> Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </strong> </p>
-            <blockquote>
-                Solo usarla en casos muy especificos, si quieres que una clase actue diferente, ejem para H1 le tienes un estilo asignado pero usas h1 en tu encabezado
-                pues para el H1 de los encabezado le ponemos el !important para que pase lo que pase tome el estilo que tu quieres.
-            </blockquote>
-
-            <br>
- 
-            <p class="pregunta"> <strong> Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado? </strong> </p>
-            <blockquote>
-                Las imagenes de fondo tiene que seguir reglas de diseno, porque si se llegara a elegir mal, podria hacer que la pagina web sea inleible,
-                puede ser que los colores parecidos a los del texto y no se pueda leer el texto, la imagen este borrosa y esto puede provocar complicaciones para leer.
-            </blockquote>
-
-            <br>
-
-            <p class="pregunta"> <strong> Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt? </strong> </p>
-
-            <blockquote>
-                Escoger la que sea una medida relativa para que se pueda adaptar mejor a todos los tipos de pantalla como el % o px, tambien hay mas opciones buenas como el em.
-            </blockquote>
-
-            <br>
-
-            <p class="pregunta"> <strong> ¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio? </strong> </p>
-
-            <blockquote>
-                Primero una version minimizada es la que no lleva espacios o saltos de lineas, y porque esto tiene mejor rendimiento, debido a que el navegador tambien procesa los saltos de linea y espacios
-                y por eso cuando se quitan el sistema procesa menos y tiene mejor rendimiento
-            </blockquote>
-
-
-        </div>
-        
-        <div>
-            <H2> Referencias </H2>
-            <ul>
-                <li> <a href="https://medium.com/level-up-web/beginners-html-cheat-sheet-f9b1e3ce88a6"> https://medium.com/level-up-web/beginners-html-cheat-sheet-f9b1e3ce88a6 </a> </li>
-                <li> <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics"> https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics </a> </li>
-                <li> <a href="https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/"> https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/ </a> </li>
-                <li> <a href="https://visuresolutions.com/es/guía-de-limosna/modelos-de-ciclo-de-vida-del-desarrollo-de-sistemas/#:~:text=¿Qué%20es%20el%20ciclo%20de,funcionales%20y%20de%20alta%20calidad."> https://visuresolutions.com/es/guía-de-limosna/modelos-de-ciclo-de-vida-del-desarrollo-de-sistemas/#:~:text=¿Qué%20es%20el%20ciclo%20de,funcionales%20y%20de%20alta%20calidad. </a> </li>
-            </ul>
-            <br>
-            <br>
-            <hr>
-        </div>
-
-        <footer>
-            <a href="https://code.visualstudio.com"> Visual Studio Code Link </a>
-        </footer>
+    <h2> Referencias </h2>
+    <ol>
+        <li> <a href="https://www.freecodecamp.org/espanol/news/el-manual-de-arreglos-en-javascript/"> Zubikarai, S. (2022, 12 enero). Manual de arreglos en JavaScript: Métodos de arreglos de JS explicados con ejemplos. freeCodeCamp.org. https://www.freecodecamp.org/espanol/news/el-manual-de-arreglos-en-javascript/</a> </li>
+        <li> <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date"> Date - JavaScript | MDN. (2025, 24 junio). https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date </a> </li>
+        <li> <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_objects"> Trabajando con objetos - JavaScript | MDN. (s. f.). https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_objects </a> </li>
+        <script src="intro.js"></script>
+    </ol>
 
     </body>
-
 </html>

@@ -6,10 +6,6 @@ header {
     font-family: sans-serif;
 }
 
-p.pregunta {
-    color: var(--text-primary);
-    font-family: 'Poppins', sans-serif;
-}
 
 body{
     background-color: var(--background) ;
@@ -34,6 +30,15 @@ a{
 
 input {
     background-color: var(--primary);
+}
+
+a:hover {
+    color: #F59E0B;
+}      
+
+a:after{
+    color: white;
+                
 }
 
 :root {
