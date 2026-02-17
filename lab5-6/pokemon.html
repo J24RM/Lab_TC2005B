@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokemon</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <style>
+    .is-purple {
+      background-color: #a64ac9;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-content">
+    <section class="section">
+      <div class="container">
+
+        <section class="hero">
+          <div class="hero-body">
+            <figure class="image is-128x128 is-inline-block">
+              <img class="is-rounded" src="https://i.pinimg.com/474x/8a/e5/08/8ae50860c9392e73de6b68c016a222c9.jpg">
+            </figure>
+            <p class="title">POKEMON</p>
+          </div>
+        </section>
+
+        <nav class="navbar" role="navigation">
+          <div class="navbar-menu">
+            <div class="navbar-start">
+              <a href="https://www.pokemon.com/el" class="navbar-item">
+                Página Oficial
+              </a>
+
+              <a href="https://www.pokemon.com/el/videojuegos-pokemon" class="navbar-item">
+                Videojuegos
+              </a>
+
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Más</a>
+                <div class="navbar-dropdown">
+                  <a href="https://www.pokemon.com/el/jcc-pokemon" class="navbar-item">
+                    TCJ
+                  </a>
+                  <a href="https://www.pokemon.com/el/dibujos-animados" class="navbar-item">
+                    Anime
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div>
+          <button class="button" onclick="shiny()"> Shiny </button>
+        </div>
+
+        <h1 class="title has-text-centered mt-5">
+          Pokédex Nacional #001 - #006
+        </h1>
+
+        <table class="table is-striped is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Tipo(s)</th>
+              <th>Región</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+            <td>
+                <div class="is-flex is-align-items-center" 
+                onmouseenter="infoPoke('Bulbasaur','Bulbasaur_Div')" 
+                onmouseleave="ocultarInfo('Bulbasaur_Div')"
+                id="Bulbasaur_Div">
+                  <strong>Bulbasaur</strong> 
+                  <figure class="image is-48x48 ml-2">
+                    <img src="https://art.pixilart.com/b25ec9eb49f290a.png" id="Bulbasaur">
+                  </figure>
+                </div>
+            </td>
+              <td>
+                <span class="tag is-success">Planta</span>
+                <span class="tag is-purple">Veneno</span>
+              </td>
+              <td>Kanto</td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>
+                <div class="is-flex is-align-items-center"
+                onmouseenter="infoPoke('Ivysaur','Ivysaur_Div')" 
+                onmouseleave="ocultarInfo('Ivysaur_Div')"
+                id="Ivysaur_Div">
+                  <strong>Ivysaur</strong> 
+                  <figure class="image is-48x48 ml-2">
+                    <img src="https://static.wikia.nocookie.net/pokemongo/images/c/cc/Ivysaur_8bits.png/revision/latest/scale-to-width-down/250?cb=20200620151421" id="Ivysaur">
+                  </figure>
+                </div>
+              </td>
+              <td>
+                <span class="tag is-success">Planta</span>
+                <span class="tag is-purple">Veneno</span>
+              </td>
+              <td>Kanto</td>
+            </tr>
+            <tr>
+              <td>003</td>
+              <td>
+                <div class="is-flex is-align-items-center"
+                onmouseenter="infoPoke('Venasaur','Venasaur_Div')" 
+                onmouseleave="ocultarInfo('Venasaur_Div')"
+                id="Venasaur_Div">
+                  <strong>Venasaur</strong> 
+                  <figure class="image is-48x48 ml-2">
+                    <img src="https://art.pixilart.com/81e6776b5cb5148.png" id="Venasaur">
+                  </figure>
+                </div>
+              </td>
+              <td>
+                <span class="tag is-success">Planta</span>
+                <span class="tag is-purple">Veneno</span>
+              </td>
+              <td>Kanto</td>
+            </tr>
+            <tr>
+              <td>004</td>
+              <td>
+                <div class="is-flex is-align-items-center"
+                onmouseenter="infoPoke('Charmander','Charmander_Div')" 
+                onmouseleave="ocultarInfo('Charmander_Div')"
+                id="Charmander_Div">
+                  <strong>Charmander</strong> 
+                  <figure class="image is-48x48 ml-2">
+                    <img src="https://art.pixilart.com/c79ce0ff92ae322.png" id="Charmander">
+                  </figure>
+                </div>
+              </td>
+              <td><span class="tag is-danger">Fuego</span></td>
+              <td>Kanto</td>
+            </tr>
+            <tr>
+              <td>005</td>
+              <td>
+                <div class="is-flex is-align-items-center"
+                onmouseenter="infoPoke('Charmeleon','Charmeleon_Div')" 
+                onmouseleave="ocultarInfo('Charmeleon_Div')"
+                id="Charmeleon_Div">
+                  <strong>Charmeleon</strong> 
+                  <figure class="image is-48x48 ml-2">
+                    <img src="https://static.wikia.nocookie.net/pempyrean/images/f/fb/Charmeleon.png/revision/latest?cb=20191119135822" id="Charmeleon">
+                  </figure>
+                </div>
+              </td>
+              <td><span class="tag is-danger">Fuego</span></td>
+              <td>Kanto</td>
+            </tr>
+            <tr>
+              <td>006</td>
+              <td>
+                <div class="is-flex is-align-items-center"
+                onmouseenter="infoPoke('Charizard','Charizard_Div')" 
+                onmouseleave="ocultarInfo('Charizard_Div')"
+                id="Charizard_Div">
+                  <strong>Charizard</strong> 
+                  <figure class="image is-48x48 ml-2">
+                    <img src="https://pbs.twimg.com/media/DW7FefqVQAEnTae.png" id="Charizard">
+                  </figure>
+                </div>
+              </td>
+              <td>
+                <span class="tag is-danger">Fuego</span>
+                <span class="tag is-info">Volador</span>
+              </td>
+              <td>Kanto</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="title is-5">¿Qué es Material Design?</p>
+      <p>
+        Material Desing es un sistema desarrollado por google de codigo abierto, que dicta reglas visuales, componentes y comportamientos 
+        crear mejores interfaces, que sean claras, coherentes y consistentes.
+        <br>
+        Todo para que el usuario pueda entender la interfaz de la mejor manera posible.
+      </p>
+      <br>
+      <br>
+
+      <p class="title is-5">¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</p>
+      <br>
+      <p>Sirve para que los datos se validen antes de ser enviados, asi para que el usuario tenga retroalimentacion inmediata, si algo esta mal para que lo pueda corregir</p>
+
+      <br>
+      <br>
+      <p class="title is-5">¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</p>
+      <br>
+      <p> Hay muchas maneras de hacerlo, modificando el codigo desde el navegador, enviando la peticion de manera manual, etc.  
+        Esto se puede hacer porque JS y el Html corren desde el navegador, y el usuario puede modificarlo.</p>
+
+      <br>
+      <br>
+
+      <p class="title is-5">Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</p>
+      <br>
+      <p>Es buena practica para la experiencia del usuario, para antes de mandar una peticion al servidor verificar que los datos esten bien y no hacer gastar tiempo 
+        al usuario en lo que la peticion llega y solo paara decirle que los datos estan mal.
+
+      </p>
+
+    </div>
+    <!-- Fuentes -->
+    <div>
+      <p class="title is-5">Referencias</p>
+      <ol>
+        <li> <a href="https://developer.mozilla.org/es/docs/Web/API/Window/location">Window.location - API web | MDN. (2025, 24 junio). https://developer.mozilla.org/es/docs/Web/API/Window/location</a> </li>
+        <li> <a href="https://es.javascript.info/mouse-events-basics#:~:text=Tipos%20de%20eventos%20del%20mouse,más%20que%20cubriremos%20más%20tarde."> Kantor, I. (s. f.). Eventos del mouse. https://es.javascript.info/mouse-events-basics#:~:text=Tipos%20de%20eventos%20del%20mouse,m%C3%A1s%20que%20cubriremos%20m%C3%A1s%20tarde. </a> </li>
+        <li> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event"> https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event </a> </li>
+        <li><a href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Form_validation"> Validación de formularios de datos - Aprende desarrollo web | MDN. (2025, 21 julio). https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Form_validation </a></li>
+        <li> <a href="https://didacticode.com/como-saltarse-validacion-html5-formulario/"> Ada. (2020, 12 septiembre). Cómo saltarse la validación HTML5 de un formulario. https://didacticode.com/como-saltarse-validacion-html5-formulario/ </a> </li>
+      </ol>
+      
+    </div>
+  </footer>
+  <script src="pokescript.js"></script>
+</body>
+</html>
