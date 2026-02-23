@@ -1,39 +1,24 @@
-console.log("Hola Mundo");
 
-const filesystem = require('fs');
+const pokemones = [
+  {
+    numero: "001" ,
+    nombre: "Bulbasaur",
+    tipo: `<span class="tag is-success">Planta</span>
+                <span class="tag is-purple">Veneno</span>`,
+    region: "Kanto",
+    imagen: "https://art.pixilart.com/b25ec9eb49f290a.png",
+  },
+  {
+    numero: "004" ,
+    nombre: "Charmander",
+    tipo: `<span class="tag is-danger">Fuego</span>`,
+    region: "Kanto",
+    imagen: "https://art.pixilart.com/c79ce0ff92ae322.png",
+  },
+];
 
-function arreglo(arr) {
-    promedio = 0;
-    for(let i = 0; i < arr.length; i++){
-        promedio += arr[i];
-    }
-
-    promedio = promedio / arr.length;
-
-    return promedio;
-}
-
-function texto(str){
-    filesystem.writeFileSync('node.txt' , str)
-}
-
-function problema_TwoSum (nums, target) {
-    respuesta = [];
-    for(let i = 0; i < nums.length; i++){
-        let j = i + 1;
-        while(j != i){
-            if((nums[i] + nums[j]) == target){
-                respuesta = [i, j];
-                return respuesta;
-            }
-            j = (j + 1) % nums.length; 
-        }
-    }
-    return respuesta;
-}
-
-const html = `
-<!DOCTYPE html>
+const html_header = `
+  <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -73,6 +58,10 @@ const html = `
                 Videojuegos
               </a>
 
+              <a href = "http://localhost:3000/new" class = "navbar-item">
+                Nuevo Pokemon
+              </a>
+
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Más</a>
                 <div class="navbar-dropdown">
@@ -87,12 +76,69 @@ const html = `
             </div>
           </div>
         </nav>
+`;
 
-        <div>
-          <button class="button" onclick="shiny()"> Shiny </button>
-        </div>
+const html_footer = `
+  <footer class="footer">
+    <a href="/">
+      <input class="button is-primary" type="submit" value="Volver a pagina principal">
+    </a>
+  </footer>
+  <script src="/Users/jesusrodriguez/Desktop/Repos/Lab_TC2005B/lab5-6/pokescript.js"></script>
+</body>
+</html>
+`;
 
-        <h1 class="title has-text-centered mt-5">
+const html_form = `
+  <form action="/new" method="POST">
+    <div class="field">
+      <label for="numero" class="label"> Numero de Pokedex </label>
+      <div class="control">
+        <input id="numero" name="numero" class="input" type="text" placeholder="e.g 025">
+      </div>
+    </div>
+
+  <div class="field">
+    <label for="nombre" class="label"> Nombre </label>
+    <div class="control">
+      <input id="nombre" name="nombre" class="input" type="text" placeholder="e.g Pikachu">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="tipo" class="label"> Tipo(s) </label>
+    <div class="control">
+      <input id="tipo" name="tipo" class="input" type="text" placeholder="e.g Electrico">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="region" class="label"> Region </label>
+    <div class="control">
+      <input id="region" name="region" class="input" type="text" placeholder="e.g Kanto">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="imagen" class="label">Imagen</label>
+    <div class="control">
+      <input id="imagen" name="imagen" class="input" type="text" placeholder="e.g. https://tooys.mx/media/catalog/product/cache/0daeb07bb1d294c1f281fab47369d56a/h/o/hot-toys-league-of-legends-vi-sixth-scale_0.jpg">
+    </div>
+  </div>
+
+  <input class="button is-primary" type="submit" value="Guardar personaje">
+</form>
+<br>
+<br>
+<br>
+`;
+
+const http = require('http');
+
+const server = http.createServer ( (request, response ) => {
+  if(request.url == "/"){
+    let html_index = `
+    <h1 class="title has-text-centered mt-5">
           Pokédex Nacional #001 - #006
         </h1>
 
@@ -106,205 +152,73 @@ const html = `
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>001</td>
-            <td>
-                <div class="is-flex is-align-items-center" 
-                onmouseenter="infoPoke('Bulbasaur','Bulbasaur_Div')" 
-                onmouseleave="ocultarInfo('Bulbasaur_Div')"
-                id="Bulbasaur_Div">
-                  <strong>Bulbasaur</strong> 
-                  <figure class="image is-48x48 ml-2">
-                    <img src="https://art.pixilart.com/b25ec9eb49f290a.png" id="Bulbasaur">
-                  </figure>
-                </div>
-            </td>
-              <td>
-                <span class="tag is-success">Planta</span>
-                <span class="tag is-purple">Veneno</span>
-              </td>
-              <td>Kanto</td>
-            </tr>
-            <tr>
-              <td>002</td>
-              <td>
-                <div class="is-flex is-align-items-center"
-                onmouseenter="infoPoke('Ivysaur','Ivysaur_Div')" 
-                onmouseleave="ocultarInfo('Ivysaur_Div')"
-                id="Ivysaur_Div">
-                  <strong>Ivysaur</strong> 
-                  <figure class="image is-48x48 ml-2">
-                    <img src="https://static.wikia.nocookie.net/pokemongo/images/c/cc/Ivysaur_8bits.png/revision/latest/scale-to-width-down/250?cb=20200620151421" id="Ivysaur">
-                  </figure>
-                </div>
-              </td>
-              <td>
-                <span class="tag is-success">Planta</span>
-                <span class="tag is-purple">Veneno</span>
-              </td>
-              <td>Kanto</td>
-            </tr>
-            <tr>
-              <td>003</td>
-              <td>
-                <div class="is-flex is-align-items-center"
-                onmouseenter="infoPoke('Venasaur','Venasaur_Div')" 
-                onmouseleave="ocultarInfo('Venasaur_Div')"
-                id="Venasaur_Div">
-                  <strong>Venasaur</strong> 
-                  <figure class="image is-48x48 ml-2">
-                    <img src="https://art.pixilart.com/81e6776b5cb5148.png" id="Venasaur">
-                  </figure>
-                </div>
-              </td>
-              <td>
-                <span class="tag is-success">Planta</span>
-                <span class="tag is-purple">Veneno</span>
-              </td>
-              <td>Kanto</td>
-            </tr>
-            <tr>
-              <td>004</td>
-              <td>
-                <div class="is-flex is-align-items-center"
-                onmouseenter="infoPoke('Charmander','Charmander_Div')" 
-                onmouseleave="ocultarInfo('Charmander_Div')"
-                id="Charmander_Div">
-                  <strong>Charmander</strong> 
-                  <figure class="image is-48x48 ml-2">
-                    <img src="https://art.pixilart.com/c79ce0ff92ae322.png" id="Charmander">
-                  </figure>
-                </div>
-              </td>
-              <td><span class="tag is-danger">Fuego</span></td>
-              <td>Kanto</td>
-            </tr>
-            <tr>
-              <td>005</td>
-              <td>
-                <div class="is-flex is-align-items-center"
-                onmouseenter="infoPoke('Charmeleon','Charmeleon_Div')" 
-                onmouseleave="ocultarInfo('Charmeleon_Div')"
-                id="Charmeleon_Div">
-                  <strong>Charmeleon</strong> 
-                  <figure class="image is-48x48 ml-2">
-                    <img src="https://static.wikia.nocookie.net/pempyrean/images/f/fb/Charmeleon.png/revision/latest?cb=20191119135822" id="Charmeleon">
-                  </figure>
-                </div>
-              </td>
-              <td><span class="tag is-danger">Fuego</span></td>
-              <td>Kanto</td>
-            </tr>
-            <tr>
-              <td>006</td>
-              <td>
-                <div class="is-flex is-align-items-center"
-                onmouseenter="infoPoke('Charizard','Charizard_Div')" 
-                onmouseleave="ocultarInfo('Charizard_Div')"
-                id="Charizard_Div">
-                  <strong>Charizard</strong> 
-                  <figure class="image is-48x48 ml-2">
-                    <img src="https://pbs.twimg.com/media/DW7FefqVQAEnTae.png" id="Charizard">
-                  </figure>
-                </div>
-              </td>
-              <td>
-                <span class="tag is-danger">Fuego</span>
-                <span class="tag is-info">Volador</span>
-              </td>
-              <td>Kanto</td>
-            </tr>
-          </tbody>
-        </table>
+    `;
 
+    for(let pokemon of pokemones){
+      html_index += 
+      `<tr>
+        <td> ${pokemon.numero} </td>
+        <td>
+          <div class="is-flex is-align-items-center">
+            <strong> ${pokemon.nombre} </strong> 
+            <figure class="image is-48x48 ml-2">
+              <img src="${pokemon.imagen}">
+            </figure>
+          </div>
+        </td>
+        <td>
+          ${pokemon.tipo}
+        </td>
+        <td> ${pokemon.region} </td>
+        </tr>
+      `;
+    };
+    html_index += `
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
+    `;
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header + html_index + html_footer);
+    response.end();
+  }
+  else if(request.url == "/new" && request.method == "GET"){
+    response.setHeader('Content-Type', 'text/html');
+    response.write(html_header + html_form + html_footer);
+    response.end();
+  }
+  else if(request.url == "/new" && request.method == "POST" ){
+    response.setHeader('Content-Type', 'text/html');
+    const datos_completos = [];
+    
+        request.on('data', (data) => {
+            console.log(data);
+            datos_completos.push(data);
+        });
+    
+        request.on('end', () => {
+            const string_datos_completos = Buffer.concat(datos_completos).toString();
+            console.log(string_datos_completos);
+            pokemones.push({
+                numero: string_datos_completos.split('&')[0].split('=')[1],
+                nombre: string_datos_completos.split('&')[1].split('=')[1],
+                tipo: string_datos_completos.split('&')[2].split('=')[1],
+                region: string_datos_completos.split('&')[3].split('=')[1],
+                imagen: string_datos_completos.split('&')[4].split('=')[1],
+            });
 
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p class="title is-5">¿Qué es Material Design?</p>
-      <p>
-        Material Desing es un sistema desarrollado por google de codigo abierto, que dicta reglas visuales, componentes y comportamientos 
-        crear mejores interfaces, que sean claras, coherentes y consistentes.
-        <br>
-        Todo para que el usuario pueda entender la interfaz de la mejor manera posible.
-      </p>
-      <br>
-      <br>
-
-      <p class="title is-5">¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</p>
-      <br>
-      <p>Sirve para que los datos se validen antes de ser enviados, asi para que el usuario tenga retroalimentacion inmediata, si algo esta mal para que lo pueda corregir</p>
-
-      <br>
-      <br>
-      <p class="title is-5">¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</p>
-      <br>
-      <p> Hay muchas maneras de hacerlo, modificando el codigo desde el navegador, enviando la peticion de manera manual, etc.  
-        Esto se puede hacer porque JS y el Html corren desde el navegador, y el usuario puede modificarlo.</p>
-
-      <br>
-      <br>
-
-      <p class="title is-5">Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</p>
-      <br>
-      <p>Es buena practica para la experiencia del usuario, para antes de mandar una peticion al servidor verificar que los datos esten bien y no hacer gastar tiempo 
-        al usuario en lo que la peticion llega y solo paara decirle que los datos estan mal.
-
-      </p>
-
-    </div>
-    <!-- Fuentes -->
-    <div>
-      <p class="title is-5">Referencias</p>
-      <ol>
-        <li> <a href="https://developer.mozilla.org/es/docs/Web/API/Window/location">Window.location - API web | MDN. (2025, 24 junio). https://developer.mozilla.org/es/docs/Web/API/Window/location</a> </li>
-        <li> <a href="https://es.javascript.info/mouse-events-basics#:~:text=Tipos%20de%20eventos%20del%20mouse,más%20que%20cubriremos%20más%20tarde."> Kantor, I. (s. f.). Eventos del mouse. https://es.javascript.info/mouse-events-basics#:~:text=Tipos%20de%20eventos%20del%20mouse,m%C3%A1s%20que%20cubriremos%20m%C3%A1s%20tarde. </a> </li>
-        <li> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event"> https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event </a> </li>
-        <li><a href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Form_validation"> Validación de formularios de datos - Aprende desarrollo web | MDN. (2025, 21 julio). https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Form_validation </a></li>
-        <li> <a href="https://didacticode.com/como-saltarse-validacion-html5-formulario/"> Ada. (2020, 12 septiembre). Cómo saltarse la validación HTML5 de un formulario. https://didacticode.com/como-saltarse-validacion-html5-formulario/ </a> </li>
-      </ol>
-      
-    </div>
-  </footer>
-  <script src="/Users/jesusrodriguez/Desktop/Repos/Lab_TC2005B/lab5-6/pokescript.js"></script>
-</body>
-</html>
-`
-
-const http = require('http');
-
-const server = http.createServer ( (request, response ) => {
-    console.log(request.url);
-    // 1
-    arr = [13,43,56,34];
-    console.log(arreglo(arr));
-
-    // 2
-    str = "Buentas tardes";
-    texto(str);
-
-    // problema mio
-    nums = [3,7,2,8,6,1]
-    target = 10;
-    respuesta = problema_TwoSum(nums, target);
-    console.log(nums[respuesta[0]] + " + " + nums[respuesta[1]] + " = " + target);
-
-    // Mi pagina Propia
-    if(request.url == "/mi_pagina"){
-        response.setHeader('Content-Type', 'text/html');
-        response.write(html);
-        response.end();
-    }
-
-    // Mandar Respuesta
-    if(request.url == "/"){
-        response.setHeader('Content-Type', 'text/html');
-
-        response.write("HOLA");
-        response.end();
-    }
+            response.write(html_header + "Se guardó el nuevo personaje con los siguientes datos: " + 
+            string_datos_completos + html_footer);
+            response.end();
+        });
+  }
+  else{
+    response.setHeader('Content-Type', 'text/html');
+    response.write("404");
+    response.end();
+  }
 
 })
 
