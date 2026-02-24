@@ -1,0 +1,26 @@
+{
+  "name": "lab_tc2005b",
+  "version": "1.0.0",
+  "description": "Laboratorios de apoyo de TC2005B",
+  "keywords": [
+    "node",
+    "pokemon",
+    "express"
+  ],
+  "homepage": "https://github.com/J24RM/Lab_TC2005B#readme",
+  "bugs": {
+    "url": "https://github.com/J24RM/Lab_TC2005B/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J24RM/Lab_TC2005B.git"
+  },
+  "license": "MIT",
+  "author": "Jesus",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
