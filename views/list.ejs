@@ -1,0 +1,41 @@
+<%- include('includes/_header') %>
+
+    <h1 class="title has-text-centered mt-5">
+        Pokédex Nacional #001 - #006
+    </h1>
+
+    <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Tipo(s)</th>
+                    <th>Región</th>
+                </tr>
+            </thead>
+        <tbody>
+            <% for(let pokemon of pokemones){ %>
+                <tr>
+            <td> <%= pokemon.numero %> </td>
+            <td>
+                <div class="is-flex is-align-items-center">
+                    <strong> <%= pokemon.nombre %> </strong> 
+                    <figure class="image is-48x48 ml-2">
+                        <img src="<%= pokemon.imagen %>">
+                    </figure>
+                </div>
+            </td>
+        <td>
+            <%- pokemon.tipo %>
+        </td>
+        <td> <%= pokemon.region %> </td>
+        </tr>
+            <% } %>
+        
+        </tbody>
+    </table>
+    </div>
+    </section>
+    </div>
+
+<%- include('includes/_footer') %>
