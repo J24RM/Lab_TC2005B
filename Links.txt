@@ -1,4 +1,4 @@
-Laboratorio 11
+Laboratorio 12
 
-1.- https://github.com/J24RM/Lab_TC2005B/commit/47ac9a0b0a4532e59c1243ade65e1cce8116afe9
-2.- https://github.com/J24RM/Lab_TC2005B/commit/d29d5a4f9448763df5263e6a7c73b4d92fd330d6
+1.- https://github.com/J24RM/Lab_TC2005B/commit/8a05c4725c1f457b5bc8b67d102a7f38816272fa
+2.- https://github.com/J24RM/Lab_TC2005B/commit/13321d727061c359eb3f1f25493e38c2fcdd3aea
