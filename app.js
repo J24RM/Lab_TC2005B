@@ -17,6 +17,9 @@ const rutas_entrenadores = require('/Users/jesusrodriguez/Desktop/Repos/Lab_TC20
 
 app.use('/pokemones', rutas_pokemones);
 
+app.use('/entrenadores', rutas_entrenadores);
+
+
 app.use((request, response, next) => {
     response.status(404).send("La ruta no existe");
 })
