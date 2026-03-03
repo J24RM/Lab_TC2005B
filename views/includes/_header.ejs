@@ -24,6 +24,11 @@
               <img class="is-rounded" src="https://i.pinimg.com/474x/8a/e5/08/8ae50860c9392e73de6b68c016a222c9.jpg">
             </figure>
             <p class="title">POKEMON</p>
+            <p class="subtitle"> 
+              <% if (username != '') { %> 
+                Hola <strong><%= username %></strong>!
+              <% } %>
+            </p>
           </div>
         </section>
 
@@ -57,6 +62,18 @@
                   <a href="http://localhost:3000/pokemones/ordenar" class="navbar-item">
                     Ordenar
                   </a>
+                  <%if (username == ''){ %>
+                    <a href="/user/signup" class="navbar-item"> 
+                    Sign up
+                    </a>
+                    <a href="/user/login" class="navbar-item">
+                    Log in
+                    </a>
+                  <% } else{ %>
+                    <a href="/user/logout" class="navbar-item">
+                    Log out
+                  </a>
+                  <% } %>
                 </div>
               </div>
             </div>
