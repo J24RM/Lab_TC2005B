@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Inicio de Sesion</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    </head>
+
+    <% if(error != '') { %>
+    <article class="message is-danger">
+    <div class="message-header">
+        <p>Danger</p>
+        <button class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+        <%= error %>
+    </div>
+    </article>
+    <% } %>
+    <form action="/user/signup" method="POST">
+    <div class="field">
+        <label for="username" class="label"> Usuario </label>
+        <div class="control">
+            <input id="username" name="username" class="input" type="text" placeholder="Ingresa tu usuario" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="contrasena" class="label"> Contraseña</label>
+            <div class="control">
+                <input id="contrasena" name="contrasena" class="input" type="password" placeholder="Ingresa la Contraseña" required>
+            </div>
+        </div>
+    <div class="field">
+        <label for="confirma_contrasena" class="label"> Confirma la Contraseña</label>
+            <div class="control">
+            <input id="confirma_contrasena" name="confirma_contrasena" class="input" type="password" placeholder="Ingresa la Contraseña" required>
+        </div>
+    </div>
+        <input class="button is-primary" type="submit" value="Iniciar Sesion">
+    </form>
+    </body>
+</html>

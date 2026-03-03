@@ -1,7 +1,8 @@
 const pokemonesModel = require('/Users/jesusrodriguez/Desktop/Repos/Lab_TC2005B/models/pokemones.models.js');
 
 exports.get_add = (request, response, next) => {
-    response.render('new');
+    response.render('new', 
+        {username: request.session.username || '',});
 };
 
 exports.post_add = (request, response, next) => {
@@ -11,11 +12,14 @@ exports.post_add = (request, response, next) => {
 
     pokemon.save();
 
+    response.setHeader('Set-Cookie', `ultimo_pokemon=${pokemon.nombre}; secure`);
+
     response.redirect('/pokemones');
 };
 
 exports.get_ordenar = (request, response, next) => {
-    response.render('ordenar');
+    response.render('ordenar', 
+        {username: request.session.username || ''});
 };
 
 exports.post_ordenar = (request, response, next) => {
@@ -29,10 +33,15 @@ exports.post_ordenar = (request, response, next) => {
         pokemones = pokemonesModel.ordenar_por_numero();
     }
 
-    response.render('list_pokemones', { pokemones: pokemones });
+    response.render('list_pokemones', 
+        { username: request.session.username || '',
+        pokemones: pokemones });
 };
 
 exports.get_list = (request, response, next) => {
+    console.log(request.session.username);
     const pokemones = pokemonesModel.fetchAll()
-    response.render('list_pokemones', {pokemones: pokemones}); 
+    response.render('list_pokemones', {
+        username: request.session.username || '',
+        pokemones: pokemones}); 
 };
