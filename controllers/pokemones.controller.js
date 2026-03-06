@@ -1,8 +1,14 @@
 const pokemonesModel = require('/Users/jesusrodriguez/Desktop/Repos/Lab_TC2005B/models/pokemones.models.js');
+const Tipo = require('../models/tipo.model');
+const { request, response } = require('express');
 
 exports.get_add = (request, response, next) => {
-    response.render('new', 
-        {username: request.session.username || '',});
+    Tipo.fetchAll().then(([rows, fieldData]) => {
+        response.render('new', {
+            username: request.session.username || '',
+            tipos: rows,
+        });
+    }).catch((error) => {next(error)});
 };
 
 exports.post_add = (request, response, next) => {
@@ -10,12 +16,73 @@ exports.post_add = (request, response, next) => {
     const pokemon = new pokemonesModel(request.body.numero, request.body.nombre, 
         request.body.tipo, request.body.region, request.body.imagen);
 
-    pokemon.save();
-
-    response.setHeader('Set-Cookie', `ultimo_pokemon=${pokemon.nombre}; secure`);
-
-    response.redirect('/pokemones');
+    pokemon.save().then(() => {
+        return response.redirect('/pokemones');
+    }).catch((error) => {next(error)});
 };
+
+exports.get_list = (request, response, next) => {
+
+    Promise.all([
+        pokemonesModel.fetch(request.params.pokemon_numero),
+        Tipo.fetchAll()
+    ]).then(([pokemonData, tiposData]) => {
+        const pokemones = pokemonData[0];
+        const tipos = tiposData[0];
+        return response.render('list_pokemones', {
+            username: request.session.username || '',
+            pokemones: pokemones,
+            tipos: tipos
+        });
+    }).catch((error) => {
+        next(error);
+    });
+
+};
+
+// Modificar
+
+exports.get_modificar = (request, response, next) => {
+    
+    Promise.all([
+        pokemonesModel.fetchOne(request.params.pokemon_numero),
+        Tipo.fetchAll()
+    ]).then (([pokemonData, tiposData]) => {
+        // Sacar solo los datos que queremos
+        const pokemon = pokemonData[0][0];
+        const tipos = tiposData[0];
+        response.render('modificar', {
+            username: request.session.username || '',
+            pokemon: pokemon,
+            tipos: tipos
+        });
+    }).catch((error) => {
+        next(error);
+    })
+}
+
+exports.post_modificar = (request, response, next) => {
+
+    const numero = request.params.pokemon_numero;
+
+    const nombre = request.body.nombre;
+    const tipo = request.body.tipo;
+    const region = request.body.region;
+    const imagen = request.body.imagen;
+
+    pokemonesModel.update(numero, nombre, tipo, region, imagen)
+    .then(() => {
+        response.redirect('/pokemones');
+    })
+    .catch(error => {
+        next(error);
+    });
+
+};
+
+
+// Codigo que no se usa
+
 
 exports.get_ordenar = (request, response, next) => {
     response.render('ordenar', 
@@ -36,12 +103,4 @@ exports.post_ordenar = (request, response, next) => {
     response.render('list_pokemones', 
         { username: request.session.username || '',
         pokemones: pokemones });
-};
-
-exports.get_list = (request, response, next) => {
-    console.log(request.session.username);
-    const pokemones = pokemonesModel.fetchAll()
-    response.render('list_pokemones', {
-        username: request.session.username || '',
-        pokemones: pokemones}); 
 };

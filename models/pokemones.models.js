@@ -1,20 +1,5 @@
-const pokemones = [
-    {
-        numero: "001" ,
-        nombre: "Bulbasaur",
-        tipo: `<span class="tag is-success">Planta</span>
-                    <span class="tag is-purple">Veneno</span>`,
-        region: "Kanto",
-        imagen: "https://art.pixilart.com/b25ec9eb49f290a.png",
-    },
-    {
-        numero: "004" ,
-        nombre: "Charmander",
-        tipo: `<span class="tag is-danger">Fuego</span>`,
-        region: "Kanto",
-        imagen: "https://art.pixilart.com/c79ce0ff92ae322.png",
-    },
-];
+const db = require('../util/database');
+
 
 module.exports = class pokemonesModel {
 
@@ -29,14 +14,45 @@ module.exports = class pokemonesModel {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        pokemones.push(this);
+        return db.execute(
+            'INSERT INTO pokemon(numero ,nombre,tipo_id, region ,imagen) values (?, ?, ?, ?, ?)', 
+            [this.numero,this.nombre, this.tipo, this.region, this.imagen]
+        );
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return(pokemones);
-    }
+    return db.execute(`
+        SELECT p.numero, p.nombre, p.region, p.imagen, t.tipo
+        FROM pokemon p
+        JOIN tipo t ON p.tipo_id = t.id
+    `);
+}
     static ordenar_por_numero (){
         return pokemones.sort((a, b) => Number(a.numero) - Number(b.numero));
     }
+
+    static fetchOne(numero) {
+    return db.execute(`
+        SELECT p.numero, p.nombre, p.region, p.imagen, t.tipo
+        FROM pokemon p
+        JOIN tipo t ON p.tipo_id = t.id
+        WHERE p.numero = ?
+    `, [numero]);
+}
+
+    static fetch(numero) {
+        if (numero) {
+            return this.fetchOne(numero);
+        } else {
+            return this.fetchAll();
+        }
+    }
+
+    static update(numero, nombre, tipo, region, imagen) {
+    return db.execute(
+        'UPDATE pokemon SET nombre=?, tipo_id=?, region=?, imagen=? WHERE numero=?',
+        [nombre, tipo, region, imagen, numero]
+    );
+}
 }

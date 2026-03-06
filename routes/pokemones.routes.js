@@ -6,8 +6,10 @@ const pokemonesController = require('/Users/jesusrodriguez/Desktop/Repos/Lab_TC2
 
 router.get('/new', pokemonesController.get_add);
 router.post('/new', pokemonesController.post_add);
-router.get('/ordenar', pokemonesController.get_ordenar);
-router.post('/ordenar', pokemonesController.post_ordenar);
+router.get('/modificar/:pokemon_numero', pokemonesController.get_modificar);
+router.post('/modificar/:pokemon_numero', pokemonesController.post_modificar);
+
+router.use('/:pokemon_numero', pokemonesController.get_list);
 router.use(pokemonesController.get_list);
 
 module.exports = router;
