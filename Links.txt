@@ -1,3 +1,4 @@
-Laboratorio 14
+Laboratorio 17
 
-1.- https://github.com/J24RM/Lab_TC2005B/commit/2cece0f536266df32d759aaf3e3edf0ac1e0fe30
+1.- https://github.com/J24RM/Lab_TC2005B/commit/ecf883d57e8a386d19defd259ebaf49e802e551b
+2.- https://github.com/J24RM/Lab_TC2005B/commit/231011639b712526e8f23469a4d078d7ca22823f
