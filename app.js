@@ -30,6 +30,9 @@ app.use('/entrenadores', rutas_entrenadores);
 
 app.use("/user", rutas_usuarios);
 
+app.use((error, request, response, next) => {
+    response.status(500).send(`Error interno del servidor: ${error.stack}`);
+});
 
 app.use((request, response, next) => {
     response.status(404).send("La ruta no existe");

@@ -19,7 +19,7 @@
             <td> <%= pokemon.numero %> </td>
             <td>
                 <div class="is-flex is-align-items-center">
-                    <strong> <%= pokemon.nombre %> </strong> 
+                    <a href="/pokemones/<%= pokemon.numero %>"> <%= pokemon.nombre %> </a> 
                     <figure class="image is-48x48 ml-2">
                         <img src="<%= pokemon.imagen %>">
                     </figure>
@@ -29,6 +29,11 @@
             <%- pokemon.tipo %>
         </td>
         <td> <%= pokemon.region %> </td>
+        <td>
+            <a href="/pokemones/modificar/<%= pokemon.numero %>" class="button">
+                Modificar Pokemon
+            </a>
+                </td>
         </tr>
             <% } %>
         
