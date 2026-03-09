@@ -6,7 +6,7 @@
         <title>Inicio de Sesion</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     </head>
-
+    <%- include('includes/_error') %>
     <% if(error != '') { %>
     <article class="message is-danger">
     <div class="message-header">
@@ -19,23 +19,38 @@
     </article>
     <% } %>
     <form action="/user/signup" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
     <div class="field">
         <label for="username" class="label"> Usuario </label>
         <div class="control">
             <input id="username" name="username" class="input" type="text" placeholder="Ingresa tu usuario" required>
         </div>
     </div>
+    <div class="field">
+        <label for="nombre" class="label"> Nombre </label>
+        <div class="control">
+            <input id="nombre" name="nombre" class="input" type="text" placeholder="Ingresa tu nombre" required>
+        </div>
+    </div>
 
     <div class="field">
-        <label for="contrasena" class="label"> Contraseña</label>
+        <label for="correo" class="label"> Correo </label>
+        <div class="control">
+            <input id="correo" name="correo" class="input" type="text" placeholder="Ingresa tu correo" required>
+        </div>
+    </div>
+
+
+    <div class="field">
+        <label for="password" class="label"> Contraseña</label>
             <div class="control">
-                <input id="contrasena" name="contrasena" class="input" type="password" placeholder="Ingresa la Contraseña" required>
+                <input id="password" name="password" class="input" type="password" placeholder="Ingresa la Contraseña" required>
             </div>
         </div>
     <div class="field">
-        <label for="confirma_contrasena" class="label"> Confirma la Contraseña</label>
+        <label for="confirmPassword" class="label"> Confirma la Contraseña</label>
             <div class="control">
-            <input id="confirma_contrasena" name="confirma_contrasena" class="input" type="password" placeholder="Ingresa la Contraseña" required>
+            <input id="confirmPassword" name="confirmPassword" class="input" type="password" placeholder="Ingresa la Contraseña" required>
         </div>
     </div>
         <input class="button is-primary" type="submit" value="Iniciar Sesion">
