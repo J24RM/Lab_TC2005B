@@ -1,11 +1,44 @@
+const UserModel = require('/Users/jesusrodriguez/Desktop/Repos/Lab_TC2005B/models/user.model.js') 
+const bcrypt = require('bcrypt');
+
 exports.get_login = (request, response, next) => {
-    response.render('login', 
-        {username: request.session.username || '',})
+    const error = request.session.error || '';
+    request.session.error = ''
+    response.render('login', {   
+            csrfToken: request.csrfToken(),
+            username: request.session.username || '',
+            error: error,
+        })
 }
 
 exports.post_login = (request, response, next) => {
-    request.session.username = request.body.username
-    response.redirect('/pokemones')
+    UserModel.fetchOne(request.body.username).then(([rows, fieldData]) => {
+        if(rows.length > 0) {
+            bcrypt.compare(request.body.password, rows[0].password).then((doMatch) => {
+                console.log(rows[0]);
+                if(doMatch){
+                    request.session.isLoggedIn = true;
+                    request.session.username = request.body.username;
+                    return request.session.save(() => {
+                        return response.redirect('/pokemones');
+                    }); 
+                }
+                else{
+                    request.session.error = "Usuario y/o contraseña no coinciden";
+                    return response.redirect('/user/login')
+                }
+
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+        else {
+            request.session.error = "Usuario y/o contraseña no coinciden";
+            return response.redirect('/user/login')
+        }
+    }).catch((error) => {
+        console.log(error);
+    })
 }
 
 exports.get_logout = (request, response, next) => {
@@ -18,17 +51,24 @@ exports.get_signup = (request, response, next) => {
     const error = request.session.error || '';
     request.session.error = '';
     response.render('signup', {
+        csrfToken: request.csrfToken(),
         username: request.session.username || '',
         error: error,
     })
 }
 
 exports.post_signup = (request, response, next) => {
-    if(request.body.contrasena != request.body.confirma_contrasena){
+    if(request.body.password != request.body.confirmPassword){
         request.session.error = 'Las contrasenas no son iguales';
         response.redirect('/user/signup')
     }
     else{
-        response.redirect('/user/login')
+        const user = new 
+            UserModel(request.body.username, request.body.nombre, request.body.password, request.body.correo);
+            user.save().then(() => {
+                return response.redirect('/user/login');
+            }).catch((error) => {
+                console.log(error);
+            })
     }
 }

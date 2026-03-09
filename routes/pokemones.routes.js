@@ -3,13 +3,15 @@ const express = require('express');
 const router = express.Router();
 
 const pokemonesController = require('/Users/jesusrodriguez/Desktop/Repos/Lab_TC2005B/controllers/pokemones.controller.js');
+const isAuth = require('../util/is-auth');
 
-router.get('/new', pokemonesController.get_add);
-router.post('/new', pokemonesController.post_add);
-router.get('/modificar/:pokemon_numero', pokemonesController.get_modificar);
-router.post('/modificar/:pokemon_numero', pokemonesController.post_modificar);
 
-router.use('/:pokemon_numero', pokemonesController.get_list);
-router.use(pokemonesController.get_list);
+router.get('/new',isAuth , pokemonesController.get_add);
+router.post('/new',isAuth , pokemonesController.post_add);
+router.get('/modificar/:pokemon_numero',isAuth , pokemonesController.get_modificar);
+router.post('/modificar/:pokemon_numero',isAuth , pokemonesController.post_modificar);
+
+router.use('/:pokemon_numero',isAuth , pokemonesController.get_list);
+router.use(isAuth ,pokemonesController.get_list);
 
 module.exports = router;
