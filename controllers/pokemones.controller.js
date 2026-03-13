@@ -23,7 +23,6 @@ exports.post_add = (request, response, next) => {
 };
 
 exports.get_list = (request, response, next) => {
-    console.log(request.session.permisos);
     Promise.all([
         pokemonesModel.fetch(request.params.pokemon_numero),
         Tipo.fetchAll()
