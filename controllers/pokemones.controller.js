@@ -23,7 +23,6 @@ exports.post_add = (request, response, next) => {
 };
 
 exports.get_list = (request, response, next) => {
-
     Promise.all([
         pokemonesModel.fetch(request.params.pokemon_numero),
         Tipo.fetchAll()
@@ -31,6 +30,7 @@ exports.get_list = (request, response, next) => {
         const pokemones = pokemonData[0];
         const tipos = tiposData[0];
         return response.render('list_pokemones', {
+            permisos: request.session.permisos || [],
             username: request.session.username || '',
             pokemones: pokemones,
             tipos: tipos
@@ -53,6 +53,8 @@ exports.get_modificar = (request, response, next) => {
         const pokemon = pokemonData[0][0];
         const tipos = tiposData[0];
         response.render('modificar', {
+            csrfToken: request.csrfToken(),
+            permisos: request.session.permisos || [],
             username: request.session.username || '',
             pokemon: pokemon,
             tipos: tipos
