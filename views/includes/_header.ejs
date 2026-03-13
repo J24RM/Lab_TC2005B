@@ -46,9 +46,11 @@
                 Videojuegos
               </a>
 
-              <a href = "http://localhost:3000/pokemones/new" class = "navbar-item">
-                Nuevo Pokemon
-              </a>
+              <% for (let permiso of permisos) { %>
+                  <% if (permiso.nombre_privilegio == 'crear_pokemones') { %>
+                      <a href = "http://localhost:3000/pokemones/new" class = "navbar-item"> Nuevo Pokemon </a>
+                  <% } %>
+              <% } %>
 
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Más</a>

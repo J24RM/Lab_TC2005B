@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 const csrf = require('csurf');
 const csrfProtection = csrf();
+
 app.use(csrfProtection); 
 
 const rutas_pokemones = require('/Users/jesusrodriguez/Desktop/Repos/Lab_TC2005B/routes/pokemones.routes.js');
