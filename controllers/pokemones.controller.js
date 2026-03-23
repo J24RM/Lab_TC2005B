@@ -8,6 +8,7 @@ exports.get_add = (request, response, next) => {
             csrfToken: request.csrfToken(),
             username: request.session.username || '',
             tipos: rows,
+            permisos: request.session.permisos || [],
         });
     }).catch((error) => {next(error)});
 };
@@ -15,7 +16,7 @@ exports.get_add = (request, response, next) => {
 exports.post_add = (request, response, next) => {
     //Para crear un objeto de nuestro modelo
     const pokemon = new pokemonesModel(request.body.numero, request.body.nombre, 
-        request.body.tipo, request.body.region, request.body.imagen);
+        request.body.tipo, request.body.region, request.file.filename);
 
     pokemon.save().then(() => {
         return response.redirect('/pokemones');
@@ -71,7 +72,7 @@ exports.post_modificar = (request, response, next) => {
     const nombre = request.body.nombre;
     const tipo = request.body.tipo;
     const region = request.body.region;
-    const imagen = request.body.imagen;
+    const imagen = request.file.filename;
 
     pokemonesModel.update(numero, nombre, tipo, region, imagen)
     .then(() => {
