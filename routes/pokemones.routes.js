@@ -7,7 +7,7 @@ const isAuth = require('../util/is-auth');
 const canCreate = require('../util/can-create');
 const canView = require('../util/can-view')
 
-
+router.get('/buscar/:busqueda', isAuth, canView ,pokemonesController.get_buscar);
 router.get('/new',isAuth , canCreate , pokemonesController.get_add);
 router.post('/new',isAuth , canCreate , pokemonesController.post_add);
 router.get('/modificar/:pokemon_numero',isAuth , pokemonesController.get_modificar);

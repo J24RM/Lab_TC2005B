@@ -84,6 +84,14 @@ exports.post_modificar = (request, response, next) => {
 
 };
 
+exports.get_buscar = (request, response, next) => {
+    pokemonesModel.buscar(request.params.busqueda).then(([pokemones, fieldData]) => {
+        response.status(200).json({pokemones: pokemones});
+    }).catch((error) => {
+        return response.status(500).json({message: error.stack()});
+    })
+};
+
 
 // Codigo que no se usa
 
