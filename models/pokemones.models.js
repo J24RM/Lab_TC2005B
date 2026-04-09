@@ -55,4 +55,12 @@ module.exports = class pokemonesModel {
         [nombre, tipo, region, imagen, numero]
     );
 }
+    static buscar(busqueda){
+        return db.execute(`
+            SELECT p.numero, p.nombre, p.region, p.imagen, t.tipo
+            FROM pokemon p
+            JOIN tipo t ON p.tipo_id = t.id
+            WHERE (nombre LIKE ? OR numero LIKE ? OR tipo LIKE ?)
+            `, ['%' + busqueda + '%',"%" + busqueda + "%" ,"%" + busqueda + "%"])
+    }
 }

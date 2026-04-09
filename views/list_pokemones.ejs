@@ -1,5 +1,9 @@
 <%- include('includes/_header') %>
 
+    <label for="buscar"> Buscar </label>
+    <input type="text" id="buscar" class="input is-primary" placeholder="Ditto..">
+    <br><br>
+
     <h1 class="title has-text-centered mt-5">
         Pokédex Nacional #001 - #006
     </h1>
@@ -13,35 +17,81 @@
                     <th>Región</th>
                 </tr>
             </thead>
-        <tbody>
-            <% for(let pokemon of pokemones){ %>
-                <tr>
-            <td> <%= pokemon.numero %> </td>
-            <td>
-                <div class="is-flex is-align-items-center">
-                    <a href="/pokemones/<%= pokemon.numero %>"> <%= pokemon.nombre %> </a> 
-                    <figure class="image is-48x48 ml-2">
-                        <img src="<%= pokemon.imagen %>">
-                    </figure>
-                </div>
-            </td>
-        <td>
-            <%- pokemon.tipo %>
-        </td>
-        <td> <%= pokemon.region %> </td>
-        <td>
-            <a href="/pokemones/modificar/<%= pokemon.numero %>" class="button">
-                Modificar Pokemon
-            </a>
+        <tbody id="lista">
+                <% for(let pokemon of pokemones){ %>
+                    <tr>
+                <td> <%= pokemon.numero %> </td>
+                <td>
+                    <div class="is-flex is-align-items-center">
+                        <a href="/pokemones/<%= pokemon.numero %>"> <%= pokemon.nombre %> </a> 
+                        <figure class="image is-48x48 ml-2">
+                            <img src="<%= pokemon.imagen %>">
+                        </figure>
+                    </div>
                 </td>
-        </tr>
-            <% } %>
-        
+            <td>
+                <%- pokemon.tipo %>
+            </td>
+            <td> <%= pokemon.region %> </td>
+            <td>
+                <a href="/pokemones/modificar/<%= pokemon.numero %>" class="button">
+                    Modificar Pokemon
+                </a>
+                    </td>
+            </tr>
+                <% } %>
         </tbody>
     </table>
     </div>
     </section>
     </div>
+
+<script>
+const buscar = document.getElementById("buscar");
+
+buscar.onkeyup = () => {
+    fetch(`/pokemones/buscar/${buscar.value}`)
+    .then(result => result.json())
+    .then(data => {
+
+        let html = "";
+
+        if(data.pokemones.length == 0){ 
+            html = `
+            <tr>
+                <td colspan="5">No hay pokemones.</td>
+            </tr>`;
+        } else { 
+            for(let pokemon of data.pokemones){ 
+                html += `
+                <tr>
+                    <td>${pokemon.numero}</td>
+                    <td>
+                        <div class="is-flex is-align-items-center">
+                            <a href="/pokemones/${pokemon.numero}">
+                                ${pokemon.nombre}
+                            </a> 
+                            <figure class="image is-48x48 ml-2">
+                                <img src="${pokemon.imagen}">
+                            </figure>
+                        </div>
+                    </td>
+                    <td>${pokemon.tipo}</td>
+                    <td>${pokemon.region}</td>
+                    <td>
+                        <a href="/pokemones/modificar/${pokemon.numero}" class="button">
+                            Modificar Pokemon
+                        </a>
+                    </td>
+                </tr>`;
+            }
+        }
+
+        document.getElementById('lista').innerHTML = html;
+    })
+    .catch(error => console.log(error));
+}
+</script>
 
 <%- include('includes/_footer') %>
 

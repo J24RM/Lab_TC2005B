@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3000;
 const bodyParser = require('body-parser');
 const session = require('express-session');
+app.use(bodyParser.json());
 
 const path = require("path");
 app.use(express.static(path.join(__dirname, 'public/uploads')));
