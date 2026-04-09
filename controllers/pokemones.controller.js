@@ -23,7 +23,42 @@ exports.post_add = (request, response, next) => {
     }).catch((error) => {next(error)});
 };
 
+exports.get_juegos = async (request, response, next) => {
+    try {
+        const url = "https://pokeapi.co/api/v2/version-group/";
+        const respuesta = await fetch(url);
+        const data = await respuesta.json();
+
+        let juegos = [];
+
+        for (let juego of data.results) {
+            const res = await fetch(juego.url);
+            const juegoData = await res.json();
+
+            juegos.push({
+                numero: juegoData.id,
+                nombre: juegoData.name,
+                gen: juegoData.generation.name,
+                region: juegoData.regions.length > 0 
+                        ? juegoData.regions[0].name 
+                        : "Sin región"
+            });
+        }
+
+        response.render("juegos", {
+            csrfToken: request.csrfToken(),
+            permisos: request.session.permisos || [],
+            username: request.session.username || '',
+            juegos: juegos,
+        });
+
+    } catch (error) {
+        console.log("Error:", error);
+    }
+}
+
 exports.get_list = (request, response, next) => {
+
     Promise.all([
         pokemonesModel.fetch(request.params.pokemon_numero),
         Tipo.fetchAll()
@@ -31,6 +66,7 @@ exports.get_list = (request, response, next) => {
         const pokemones = pokemonData[0];
         const tipos = tiposData[0];
         return response.render('list_pokemones', {
+            csrfToken: request.csrfToken(),
             permisos: request.session.permisos || [],
             username: request.session.username || '',
             pokemones: pokemones,
