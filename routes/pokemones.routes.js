@@ -12,6 +12,7 @@ router.get('/new',isAuth , canCreate , pokemonesController.get_add);
 router.post('/new',isAuth , canCreate , pokemonesController.post_add);
 router.get('/modificar/:pokemon_numero',isAuth , pokemonesController.get_modificar);
 router.post('/modificar/:pokemon_numero',isAuth , pokemonesController.post_modificar);
+router.get('/juegos', isAuth, pokemonesController.get_juegos);
 
 router.use('/:pokemon_numero',isAuth , canView , pokemonesController.get_list);
 router.use(isAuth , canView ,pokemonesController.get_list);

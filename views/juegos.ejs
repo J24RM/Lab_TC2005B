@@ -1,0 +1,42 @@
+<%- include('includes/_header') %>
+
+    <h1 class="title has-text-centered mt-5">
+        Juegos de Pokemon
+    </h1>
+
+    <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Generacion</th>
+                    <th>Región</th>
+                </tr>
+            </thead>
+        <tbody>
+            <% for(let juego of juegos){ %>
+                <tr>
+            <td> <%= juego.numero %> </td>
+            <td>
+                <div class="is-flex is-align-items-center">
+                    <%= juego.nombre %> 
+                </div>
+            </td>
+        <td>
+            <%- juego.gen %>
+        </td>
+        <td> <%= juego.region %> </td>
+
+        </tr>
+            <% } %>
+        
+        </tbody>
+    </table>
+    </div>
+    </section>
+    </div>
+
+<%- include('includes/_footer') %>
+
+</body>
+</html>
