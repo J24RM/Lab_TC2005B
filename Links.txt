@@ -1,3 +1,9 @@
 Laboratorio 23
 
 1.- https://github.com/J24RM/Odysey_sistema_de_preventas/commit/6fe1af2617642a0e67f9594f2b45f3eb74b74f1e
+
+
+Laboratorio 25
+
+1.- https://github.com/J24RM/Odysey_sistema_de_preventas/commit/2d50195bdf9170fb0afb2b55ce01d5bf2e8c2529
+2.- https://github.com/J24RM/Odysey_sistema_de_preventas/commit/f5b3ad7cf37540045bddb998031fb3f4a3ad2a58
