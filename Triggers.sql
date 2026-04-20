@@ -7,3 +7,21 @@ BEGIN
     END IF;
 END
 
+-- Guardar como estaban guardados los pokemones
+-- Poner Before Update Pokemon
+BEGIN
+    INSERT INTO pokemon_historial (
+        numero,
+        nombre_anterior,
+        tipo_anterior,
+        region_anterior,
+        imagen_anterior
+    )
+    VALUES (
+        OLD.numero,
+        OLD.nombre,
+        OLD.tipo_id,
+        OLD.region,
+        OLD.imagen
+    );
+END
