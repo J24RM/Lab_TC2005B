@@ -1,26 +1,19 @@
 <footer class="footer">
     <div class="content has-text-centered">
-        <p class="title is-5"> ¿Qué importancia tiene AJAX en el desarrollo de RIA's Rich Internet Applications? </p>
-        <p> 
-            Es muy importante porque permite actualizar partes de la pagina web sin tener que recargar la pagina, haciendo que sea una experiencia mas fluida y rapida
-        </p>
+        <p class="title is-5"> Pregunta 1 ¿Qué utilidad tiene un trigger (ventajas)? </p>
 
-        <p class="title is-5"> ¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor? </p>
-        <p> 
-            Debido a que se comunica de manera asincronica con el servidor, se facilitan las inyecciones de sql.
-            <br> Las validaciones de seguridad se deben hacer en el servidor porque del lado de cliente puede ser manipulado.
-        </p>
+        <p> Sirve para automatizar procesos ya que se ejecuta de manera automatica cuando se cumpla la condicion <br>
+        Tambien sirve mucho para guardar registros sobre quien realizo cambios en los datos y <br> 
+        una cosa muy importante es la integridad de los datos, debido a que puede ayudar a mantener las reglas de negocio en los datos </p>
 
-        <p class="title is-5"> ¿Qué es JSON? </p>
-        <p> 
-            Son las sigla de JavaScript Object Notation, es un objeto de JavaScript que sirve para mandar datos entre aplicaciones y servidores
-        <p class="title is-5"> ¿Qué ventajas y desventajas tiene la integración de tus aplicaciones web con servicios web desarrollados por terceros?</p>
-        <p> Ventajas: Se pueden reutilizar todos esos componentes de software y con eso ahorrar recursos y tiempo en desarrollar ese componente
-            <br>, encapsulas la complejidad provocando que realizar una funcion puede ser muy facil si usas un servicio que ya hace eso.
-            <br>
-            Desventajas: Generas Dependencias, si cambian las politicas sobre el uso del servicio web puede que tengas realizar modificaciones, tambien si el servicio deja de existir, tu aplicacion deja de funcionar
-            <br> ,hacer las peticiones al servicio puede provocar latencia en tu sistema
-            <br> ,puede que sea algo inseguro debido a que confias tus datos al servicio externo
+        <p class="title is-5"> Pregunta 2 ¿Tipos de triggers? </p>
+            <p>Hay dos tipos de triggers, (For o After)los que se ejecutan despues de cierta condicion (insertar, actualizar, eliminar) <br>
+            (Instead OF) Y los que remplazan la instruccion original. </p>
+
+        <p class="title is-5"> Pregunta 3 ¿En que casos NO son de utilidad? </p>
+        <p> Cuando es tan compleja la operacion que puede crear bucles infinitos, ejemplo un trigger hace que en una tabla se inserte datos y eso manda a llamar a otro trigger y ese trigger llama al anterior trigger y asi en infinito
+            <br> Tambien si llega a afectar al rendimiento ya que esto es otro proceso que la base de datos tiene que hacer y esto puede provocar retrasos o lentitud
+            <br> Cuando se necesita un mayor control debido a que los triggers son automaticos esto provoca que no se sabe cuando se ejecutan y esto puede provocar resultados no deseados
         </p>
     </div>
 </footer>
